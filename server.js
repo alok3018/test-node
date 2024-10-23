@@ -40,7 +40,7 @@ app.post('/api/products', async (req, res) => {
 
     try {
         const savedProduct = await product.save();
-        res.status(201).json({ data: savedProduct, message: 'Products Fetched successfully' });
+        res.status(201).json({ data: savedProduct, message: 'Products created successfully' });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
@@ -50,7 +50,7 @@ app.post('/api/products', async (req, res) => {
 app.get('/api/products', async (req, res) => {
     try {
         const products = await Product.find();
-        res.status(200).json(products);
+        res.status(200).json({ data: products, message: 'Products Fetched successfully' });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
