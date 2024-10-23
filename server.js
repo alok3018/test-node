@@ -40,7 +40,7 @@ app.post('/api/products', async (req, res) => {
 
     try {
         const savedProduct = await product.save();
-        res.status(201).json({ data: savedProduct, message: 'Products Fetched successfully!' });
+        res.status(201).json({ data: savedProduct, message: 'Products Fetched successfully' });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
