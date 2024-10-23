@@ -12,7 +12,7 @@ app.use(bodyParser.json()); // for parsing application/json
 // Connect to MongoDB
 mongoose.connect(
     'mongodb+srv://alokjsx:R6GgaLGZTq4vmOju@cluster0.669gb.mongodb.net/productsDB?retryWrites=true&w=majority'
-    ).then(() => {
+).then(() => {
     console.log('MongoDB connected successfully.');
 }).catch((error) => {
     console.error('MongoDB connection error:', error.message);
@@ -40,7 +40,7 @@ app.post('/api/products', async (req, res) => {
 
     try {
         const savedProduct = await product.save();
-        res.status(201).json(savedProduct);
+        res.status(201).json({ data: savedProduct, message: 'Products Fetched successfully' });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
